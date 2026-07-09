@@ -74,7 +74,7 @@ body{
     min-height:520px;
     background:
         linear-gradient(90deg, rgba(7,28,51,.72), rgba(7,28,51,.35)),
-        url("assets/hero-mockup.jpg");
+        url("assets/hero-mockup.jpeg");
     background-size:cover;
     background-position:center;
     display:flex;
