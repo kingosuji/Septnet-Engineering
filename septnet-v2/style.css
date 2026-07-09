@@ -248,3 +248,12 @@ body{
     color:#0b2d5b;
     font-weight:700;
 }
+.card-icon svg{
+    width:52px;
+    height:52px;
+    stroke:#0b2d5b;
+    stroke-width:3;
+    fill:none;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
