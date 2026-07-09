@@ -69,3 +69,68 @@ body{
     border-radius:3px;
     font-weight:700;
 }
+.hero{
+    position:relative;
+    min-height:520px;
+    background:
+        linear-gradient(90deg, rgba(7,28,51,.72), rgba(7,28,51,.35)),
+        url("assets/hero-mockup.jpg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    color:#fff;
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(90deg, rgba(7,28,51,.35), rgba(7,28,51,.08));
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:760px;
+    margin-left:10%;
+}
+
+.hero h1{
+    font-size:56px;
+    line-height:1.08;
+    font-weight:800;
+    letter-spacing:-1.5px;
+    margin-bottom:22px;
+}
+
+.hero p{
+    font-size:19px;
+    line-height:1.55;
+    color:#ffffff;
+    max-width:720px;
+    margin-bottom:32px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:18px;
+}
+
+.btn-primary,
+.btn-secondary{
+    display:inline-block;
+    text-decoration:none;
+    font-weight:700;
+    padding:15px 24px;
+    border-radius:3px;
+}
+
+.btn-primary{
+    background:#08254b;
+    color:#fff;
+}
+
+.btn-secondary{
+    border:1px solid #fff;
+    color:#fff;
+}
