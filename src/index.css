@@ -1,0 +1,217 @@
+@import "@fontsource-variable/plus-jakarta-sans";
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #07182b;
+  --color-navy-dark: #03101f;
+  --color-blue: #0789ff;
+  --color-blue-hover: #086be8;
+  --color-light-bg: #f7f9fc;
+  --color-text-dark: #172338;
+  --color-text-muted: #607087;
+  --color-border: #dfe7f1;
+  --color-logo-navy: #0b2d5b;
+  --color-logo-grey: #7a7b80;
+  --color-sky: #8fd7ff;
+  --color-blue-deep: #0757c2;
+  --font-sans: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: clip;
+  }
+
+  body {
+    @apply m-0 overflow-x-clip bg-white font-sans text-text-dark antialiased;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-blue;
+  }
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 600ms ease,
+      transform 600ms ease;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hero-fade {
+    animation: heroFade 700ms ease forwards;
+  }
+
+  .hero-fade-up {
+    opacity: 0;
+    animation: heroFadeUp 700ms ease forwards;
+  }
+
+  @keyframes heroFade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes heroFadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .card-shape {
+    border-radius: 1rem;
+  }
+
+  /* Signature shapes derived from the SEPTNET logo (slanted bars) and network hardware (cut corners) */
+  .chamfer {
+    --cut: 30px;
+    clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut)));
+  }
+
+  .chamfer-in {
+    --cut: 29px;
+    clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut)));
+  }
+
+  /* slanted bar silhouette — wide screens only; below that the cards are plain rectangles */
+  @media (min-width: 80rem) {
+    .slat-xl {
+      --cut: 28px;
+      clip-path: polygon(var(--cut) 0, 100% 0, calc(100% - var(--cut)) 100%, 0 100%);
+    }
+  }
+
+  /* diagonal wipe that reveals the full-colour photo underneath the blue duotone layer */
+  .wipe {
+    -webkit-mask-image: linear-gradient(115deg, #000 42%, transparent 58%);
+    mask-image: linear-gradient(115deg, #000 42%, transparent 58%);
+    -webkit-mask-size: 300% 100%;
+    mask-size: 300% 100%;
+    -webkit-mask-position: 0% 0;
+    mask-position: 0% 0;
+    transition:
+      -webkit-mask-position 900ms cubic-bezier(0.22, 1, 0.36, 1),
+      mask-position 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .group:hover .wipe,
+  .group:focus-visible .wipe,
+  .group:focus-within .wipe {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+
+  .led {
+    transition:
+      background-color 250ms ease,
+      box-shadow 250ms ease;
+  }
+
+  .group:hover .led,
+  .group:focus-visible .led {
+    background-color: #8fd7ff;
+    box-shadow: 0 0 8px 1px rgb(143 215 255 / 0.8);
+  }
+
+  .led-idle {
+    animation: ledBlink 2.4s ease-in-out infinite;
+  }
+
+  @keyframes ledBlink {
+    0%,
+    100% {
+      opacity: 0.35;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 38s linear infinite;
+  }
+
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .glow-float {
+    animation: glowFloat 14s ease-in-out infinite alternate;
+  }
+
+  @keyframes glowFloat {
+    from {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    to {
+      transform: translate3d(40px, -30px, 0) scale(1.15);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+      width: auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .marquee-track [data-dup] {
+      display: none;
+    }
+
+    .glow-float {
+      animation: none;
+    }
+
+    .led-idle {
+      animation: none;
+    }
+
+    .wipe {
+      transition: none;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .hero-fade,
+    .hero-fade-up {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+}

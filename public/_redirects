@@ -1,0 +1,2 @@
+# Cloudflare Pages serves SPA routes automatically when there is no top-level 404.html.
+# Do not add `/* /index.html 200` — deploy rejects it as an infinite loop (code 100324).
