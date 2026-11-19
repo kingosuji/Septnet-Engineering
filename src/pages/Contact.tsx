@@ -2,7 +2,6 @@ import { Mail } from 'lucide-react'
 import { Seo } from '@/components/seo/Seo'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
-import { OfficeList } from '@/components/ui/OfficeList'
 import { PageHero } from '@/components/ui/PageHero'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { pageSeo } from '@/config/seo'
@@ -27,7 +26,7 @@ export function Contact() {
                 Please email us directly for inquiries. No contact form is required.
               </p>
 
-              <div className="mt-8 space-y-6">
+              <div className="mt-8">
                 <a
                   href={`mailto:${site.email}`}
                   className="flex items-start gap-3 rounded-xl border border-border bg-white p-5 text-text-dark transition hover:border-blue hover:text-blue"
@@ -40,15 +39,6 @@ export function Contact() {
                     <span className="mt-1 block text-lg font-semibold break-all">{site.email}</span>
                   </span>
                 </a>
-
-                <div className="rounded-xl border border-border bg-white p-5 text-text-dark">
-                  <span className="block text-xs font-semibold tracking-wide text-text-muted uppercase">
-                    Offices
-                  </span>
-                  <div className="mt-4">
-                    <OfficeList variant="light" />
-                  </div>
-                </div>
               </div>
 
               <div className="mt-8">

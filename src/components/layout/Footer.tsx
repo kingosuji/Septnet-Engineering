@@ -45,7 +45,7 @@ export function Footer() {
             </li>
           </ul>
           <div className="mt-5 border-t border-white/10 pt-5">
-            <OfficeList variant="footer" />
+            <OfficeList />
           </div>
         </div>
       </Container>

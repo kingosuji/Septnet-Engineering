@@ -19,6 +19,7 @@ export const assets = {
   satellite: img('radome.webp'),
   radome: img('radome.webp'),
   radomeSecondary: img('radome-secondary.webp'),
+  radomeCrew: img('helmeted-workers-radome.webp'),
   structuredCabling: img('structured-cabling-ladder.webp'),
   thuraya: img('thuraya.webp'),
   project1: img('project-infrastructure.webp'),
